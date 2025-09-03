@@ -1,5 +1,12 @@
 import React, { useMemo, useState } from "react";
-import "./App.css"; // puedes usar Tailwind o tu propio CSS
+import "./App.css";
+
+// Importamos imágenes desde src/assets
+import gomitasImg from "./assets/gomitas-trolli-dona-frutales-57g.jpg";
+import chocolateImg from "./assets/BARRA-70-60G-FRONT_1080x.webp";
+import bombonesImg from "./assets/Chocolatisimo-Cream-VALOR-MARCA-EXCLUSIVA-250-gr-3279257_a.webp";
+import paletaImg from "./assets/paleta-tosh-fresa-2.webp";
+import cintasImg from "./assets/CintaManzana-Melon-FINI-70-gr-3429901_a.webp";
 
 const CATEGORIES = [
   { key: "all", label: "Todos" },
@@ -17,8 +24,7 @@ const PRODUCTS = [
     category: "gomitas",
     price: 1500,
     desc: "Mix de sabores tropicales",
-    image:
-      "src/assets/gomitas-trolli-dona-frutales-57g.jpg",
+    image: gomitasImg,
   },
   {
     id: 2,
@@ -26,8 +32,7 @@ const PRODUCTS = [
     category: "chocolate",
     price: 3500,
     desc: "Cacao fino de aroma",
-    image:
-      "src/assets/BARRA-70-60G-FRONT_1080x.webp",
+    image: chocolateImg,
   },
   {
     id: 3,
@@ -35,8 +40,7 @@ const PRODUCTS = [
     category: "bomba",
     price: 4500,
     desc: "Centro cremoso de avellana",
-    image:
-      "src/assets/Chocolatisimo-Cream-VALOR-MARCA-EXCLUSIVA-250-gr-3279257_a.webp",
+    image: bombonesImg,
   },
   {
     id: 4,
@@ -44,8 +48,7 @@ const PRODUCTS = [
     category: "paleta",
     price: 2000,
     desc: "Clásica y deliciosa",
-    image:
-      "src/assets/paleta-tosh-fresa-2.webp",
+    image: paletaImg,
   },
   {
     id: 5,
@@ -53,8 +56,7 @@ const PRODUCTS = [
     category: "acido",
     price: 1500,
     desc: "Para los amantes del ácido",
-    image:
-      "src/assets/CintaManzana-Melon-FINI-70-gr-3429901_a.webp",
+    image: cintasImg,
   },
 ];
 
@@ -126,8 +128,9 @@ export default function App() {
           <ul>
             {Object.values(cart).map(({ product, qty }) => (
               <li key={product.id}>
-                {product.name} × {qty} = $
-                {(product.price * qty).toFixed(2)}
+                {product.name} × {qty} = ${(
+                  product.price * qty
+                ).toFixed(2)}
               </li>
             ))}
           </ul>
